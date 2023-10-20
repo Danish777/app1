@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sample HTML Page with Script</title>
+    <title>Window Post Message Test</title>
+ <meta charset="utf-8" />
+<script>
+var childwin;
+const childname = "popup";
+function openChild() {
+childwin = window.open('PageB.html', childname, 'height=300px, width=500px');
+ 
+}
+function sendMessage(){
+    let msg={pName : "Bob", pAge: "35"};
+    // In production, DO NOT use '*', use toe target domain
+    childwin.postMessage(msg,'*')// childwin is the targetWindow
+    childwin.focus();
+}
+</script>
 </head>
 <body>
-    
-    
-    <!-- A script tag to include JavaScript code -->
-    <script>
-        function postData() {
-            window.postMessage('Hello, receiver!', 'https://erdanish2008.github.io/');
-            console.log('test###')
-        }
-    </script>
-    
-   <!-- You can also include external script files -->
-    <div onclick="postData()">SEND DATA TO SERVER</div>
+    <form>
+        <fieldset>
+            <input type="button" id="btnopen" value="Open child" onclick="openChild();" />
+            <input type="button" id="btnSendMsg" value="Send Message" onclick="sendMessage();" />
+        </fieldset>
+    </form>
 </body>
 </html>
