@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample HTML Page with Script</title>
+</head>
+<body>
+    <h1>Hello, Scripting World!</h1>
+    
+    <!-- A script tag to include JavaScript code -->
+    <script>
+        function postData() {
+            window.postMessage('Hello, receiver!', 'https://receiver-domain.com');
+        }
+    </script>
+    
+    <p id="greeting">This text can be changed by JavaScript.</p>
+    
+    <!-- You can also include external script files -->
+    <div onclick="postData()"></div>
+</body>
+</html>
